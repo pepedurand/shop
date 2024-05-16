@@ -42,6 +42,20 @@ type AddItemToCartAction = {
   };
 };
 
+type DecreaseCartItemAction = {
+  type: "DECREASE_CART_ITEM";
+  payload: {
+    id: number;
+  };
+};
+
+type IncrementCartItemAction = {
+  type: "INCREMENT_CART_ITEM";
+  payload: {
+    id: number;
+  };
+};
+
 type RemoveItemFromCartAction = {
   type: "REMOVE_ITEM_FROM_CART";
   payload: {
@@ -52,6 +66,8 @@ type RemoveItemFromCartAction = {
 type Actions =
   | ToggleDrawerAction
   | AddItemToCartAction
+  | DecreaseCartItemAction
+  | IncrementCartItemAction
   | RemoveItemFromCartAction;
 
 const CartContextProvider = ({ children }: React.PropsWithChildren) => {
@@ -68,6 +84,7 @@ const CartContextProvider = ({ children }: React.PropsWithChildren) => {
         const isItemInCart = state.cartItems.some(
           (item) => item.title === action.payload.item.title
         );
+
         if (isItemInCart) {
           const updatedAmount = state.cartItems.map((item) => ({
             ...item,
@@ -81,6 +98,7 @@ const CartContextProvider = ({ children }: React.PropsWithChildren) => {
             cartItems: updatedAmount,
           };
         }
+
         return {
           ...state,
           cartItems: [...state.cartItems, action.payload.item],
@@ -92,7 +110,20 @@ const CartContextProvider = ({ children }: React.PropsWithChildren) => {
           (item) => item.id === action.payload.id
         );
 
-        console.log(selectedItem);
+        const cartItems = state.cartItems.filter(
+          (item) => item.id !== selectedItem?.id
+        );
+
+        return {
+          ...state,
+          cartItems,
+        };
+      }
+
+      case "DECREASE_CART_ITEM": {
+        const selectedItem = state.cartItems.find(
+          (item) => item.id === action.payload.id
+        );
 
         if (selectedItem?.amount === 1) {
           return {
@@ -106,6 +137,22 @@ const CartContextProvider = ({ children }: React.PropsWithChildren) => {
         const updatedAmount = state.cartItems.map((item) => ({
           ...item,
           amount: selectedItem?.id === item.id ? item.amount - 1 : item.amount,
+        }));
+
+        return {
+          ...state,
+          cartItems: updatedAmount,
+        };
+      }
+
+      case "INCREMENT_CART_ITEM": {
+        const selectedItem = state.cartItems.find(
+          (item) => item.id === action.payload.id
+        );
+
+        const updatedAmount = state.cartItems.map((item) => ({
+          ...item,
+          amount: selectedItem?.id === item.id ? item.amount + 1 : item.amount,
         }));
 
         return {

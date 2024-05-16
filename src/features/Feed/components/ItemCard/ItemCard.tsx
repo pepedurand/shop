@@ -39,14 +39,14 @@ export function ItemCard({
   return (
     <div style={{ width: "240px" }}>
       <div
+        className="centred"
         style={{
           borderRadius: "8px 8px 0 0",
           boxShadow: "0px 2px 8px 0px #00000022",
-          display: "flex",
-          alignItems: "center",
           flexDirection: "column",
           padding: "12px",
           height: "260px",
+          gap: "12px",
         }}
       >
         <Image src={image} alt={title} width={138} height={138} />
@@ -61,17 +61,15 @@ export function ItemCard({
         >
           <h2
             style={{
-              marginTop: "4px",
               fontSize: "16px",
               fontWeight: "400",
-              lineHeight: "19px",
             }}
           >
             {title}
           </h2>
           <p
+            className="centred"
             style={{
-              display: "flex",
               borderRadius: "4px",
               fontSize: "15px",
               fontWeight: "700",
@@ -79,7 +77,6 @@ export function ItemCard({
               color: "#fff",
               padding: "4px 8px",
               height: "24px",
-              alignItems: "center",
             }}
           >
             {currency.format(price)}
@@ -89,8 +86,6 @@ export function ItemCard({
           style={{
             fontSize: "10px",
             fontWeight: "300",
-            lineHeight: "12px",
-            paddingTop: "8px",
           }}
         >
           {description}

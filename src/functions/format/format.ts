@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from "@/locale";
+import { DEFAULT_LOCALE } from "@/functions/locale";
 
 export const currency = new Intl.NumberFormat(DEFAULT_LOCALE, {
   style: "currency",

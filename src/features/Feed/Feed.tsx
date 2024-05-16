@@ -1,16 +1,14 @@
 import { ItemCard } from "./components";
-import { useCyclesList } from "@/hooks/useCyclesList";
+import { useCyclesList } from "@/api/hooks";
 
 export function Feed() {
   const { data: products } = useCyclesList();
 
   return (
     <div
+      className="centred"
       style={{
         width: "100vw",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         height: "100%",
         paddingTop: "80px",
       }}

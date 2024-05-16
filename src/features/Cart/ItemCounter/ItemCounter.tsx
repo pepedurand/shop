@@ -3,8 +3,12 @@ import { useCart } from "@/context";
 export function ItemCounter({ amount, id }: { amount: number; id: number }) {
   const { dispatch } = useCart();
 
-  function handleRemoveFromCart() {
-    dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: { id } });
+  function handleDecreaseCartItem() {
+    dispatch({ type: "DECREASE_CART_ITEM", payload: { id } });
+  }
+
+  function handleIncreaseCartItem() {
+    dispatch({ type: "INCREMENT_CART_ITEM", payload: { id } });
   }
 
   return (
@@ -22,7 +26,7 @@ export function ItemCounter({ amount, id }: { amount: number; id: number }) {
         <button
           style={{ borderRadius: "4px 0 0 4px" }}
           className="item-counter-button"
-          onClick={handleRemoveFromCart}
+          onClick={handleDecreaseCartItem}
         >
           -
         </button>
@@ -39,6 +43,7 @@ export function ItemCounter({ amount, id }: { amount: number; id: number }) {
         <button
           style={{ borderRadius: "0 4px 4px 0" }}
           className="item-counter-button"
+          onClick={handleIncreaseCartItem}
         >
           +
         </button>

@@ -1,6 +1,7 @@
 import { useCart } from "@/context";
 import { Drawer } from "antd";
 import { CartItem } from "@/features/Cart";
+import { CloseCircleFilled } from "@ant-design/icons";
 
 export function Cart() {
   const {
@@ -18,6 +19,7 @@ export function Cart() {
   return (
     <Drawer
       style={{ backgroundColor: "#0f52ba", fontFamily: "Montserrat" }}
+      closeIcon={<CloseCircleFilled style={{ fontSize: "36px" }} />}
       open={isDrawerOpen}
       onClose={handleCloseDrawer}
       title={

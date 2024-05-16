@@ -1,6 +1,5 @@
-import Image from "next/image";
-import cartIcon from "@/assets/cart-icon.png";
 import { useCart } from "@/context";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 export function CartButton() {
   const {
@@ -18,24 +17,16 @@ export function CartButton() {
   return (
     <button
       onClick={handleOnClick}
+      className="centred"
       style={{
-        cursor: "pointer",
         padding: "12px 28px 12px 12px",
         borderRadius: "8px",
         border: "none",
-        display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
         gap: "16px",
       }}
     >
-      <Image
-        src={cartIcon}
-        alt="Icone de carrinho de compras"
-        width={20}
-        height={20}
-      />
+      <ShoppingCartOutlined style={{ fontSize: "20px" }} />
       <p
         style={{
           fontSize: "18px",
