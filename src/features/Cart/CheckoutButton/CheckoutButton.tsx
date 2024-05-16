@@ -1,4 +1,4 @@
-export function FinishShoppingButton() {
+export function CheckoutButton() {
   return (
     <button
       className="white-text"

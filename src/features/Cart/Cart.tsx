@@ -1,6 +1,6 @@
 import { useCart } from "@/context";
 import { Drawer } from "antd";
-import { CartItem, FinishShoppingButton, Total } from "@/features/Cart";
+import { CartItem, CheckoutButton, Total } from "@/features/Cart";
 import { CloseCircleFilled } from "@ant-design/icons";
 
 export function Cart() {
@@ -21,7 +21,7 @@ export function Cart() {
       style={{ backgroundColor: "#0f52ba", fontFamily: "Montserrat" }}
       closeIcon={<CloseCircleFilled style={{ fontSize: "36px" }} />}
       open={isDrawerOpen}
-      footer={<FinishShoppingButton />}
+      footer={<CheckoutButton />}
       onClose={handleCloseDrawer}
       title={
         <h3 className="white-text">
