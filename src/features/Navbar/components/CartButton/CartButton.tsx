@@ -4,7 +4,7 @@ import { useCart } from "@/context";
 
 export function CartButton() {
   const {
-    state: { isDrawerOpen },
+    state: { isDrawerOpen, cartItems },
     dispatch,
   } = useCart();
 
@@ -43,7 +43,7 @@ export function CartButton() {
           height: "20px",
         }}
       >
-        0
+        {cartItems.length}
       </p>
     </button>
   );

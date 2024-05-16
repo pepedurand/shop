@@ -29,6 +29,7 @@ export function Feed() {
           return (
             <ItemCard
               key={id}
+              id={id}
               title={name}
               image={photo}
               price={price}

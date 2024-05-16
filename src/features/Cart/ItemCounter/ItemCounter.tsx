@@ -1,4 +1,12 @@
-export function ItemCounter({ amount }: { amount: number }) {
+import { useCart } from "@/context";
+
+export function ItemCounter({ amount, id }: { amount: number; id: number }) {
+  const { dispatch } = useCart();
+
+  function handleRemoveFromCart() {
+    dispatch({ type: "REMOVE_ITEM_FROM_CART", payload: { id } });
+  }
+
   return (
     <div style={{ width: "62px" }}>
       <p style={{ fontSize: "8px", marginBottom: "4px" }}>Qtd:</p>
@@ -14,6 +22,7 @@ export function ItemCounter({ amount }: { amount: number }) {
         <button
           style={{ borderRadius: "4px 0 0 4px" }}
           className="item-counter-button"
+          onClick={handleRemoveFromCart}
         >
           -
         </button>

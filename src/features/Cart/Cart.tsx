@@ -28,10 +28,11 @@ export function Cart() {
         </h3>
       }
     >
-      {cartItems.map(({ title, amount, image, price }) => {
+      {cartItems.map(({ title, amount, image, price, id }) => {
         return (
           <CartItem
             key={title}
+            id={id}
             title={title}
             amount={amount}
             price={price}

@@ -10,6 +10,7 @@ export function Logo() {
     >
       <h2
         style={{
+          color: "#fff",
           fontSize: "40px",
           fontWeight: 600,
           lineHeight: "19px",

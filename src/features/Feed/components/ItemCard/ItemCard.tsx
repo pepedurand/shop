@@ -4,13 +4,20 @@ import { BuyButton } from "@/features/Feed/components";
 import { useCart } from "@/context";
 
 interface ItemCardProps {
+  id: number;
   title: string;
   image: string;
   price: number;
   description: string;
 }
 
-export function ItemCard({ title, image, price, description }: ItemCardProps) {
+export function ItemCard({
+  id,
+  title,
+  image,
+  price,
+  description,
+}: ItemCardProps) {
   const { dispatch } = useCart();
 
   function handleAddToCart() {
@@ -18,6 +25,7 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
       type: "ADD_ITEM_TO_CART",
       payload: {
         item: {
+          id,
           title,
           image,
           price,
@@ -25,6 +33,7 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
         },
       },
     });
+    dispatch({ type: "TOGGLE_DRAWER", payload: { isOpen: true } });
   }
 
   return (
@@ -52,6 +61,7 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
         >
           <h2
             style={{
+              marginTop: "4px",
               fontSize: "16px",
               fontWeight: "400",
               lineHeight: "19px",
@@ -75,7 +85,14 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
             {currency.format(price)}
           </p>
         </div>
-        <p style={{ fontSize: "10px", fontWeight: "300", lineHeight: "12px" }}>
+        <p
+          style={{
+            fontSize: "10px",
+            fontWeight: "300",
+            lineHeight: "12px",
+            paddingTop: "8px",
+          }}
+        >
           {description}
         </p>
       </div>

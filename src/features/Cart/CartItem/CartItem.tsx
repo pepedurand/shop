@@ -3,13 +3,14 @@ import Image from "next/image";
 import { ItemCounter } from "@/features/Cart";
 
 interface CartItemProps {
+  id: number;
   title: string;
   amount: number;
   price: number;
   image: string;
 }
 
-export function CartItem({ title, amount, price, image }: CartItemProps) {
+export function CartItem({ id, title, amount, price, image }: CartItemProps) {
   return (
     <div
       style={{
@@ -36,7 +37,7 @@ export function CartItem({ title, amount, price, image }: CartItemProps) {
           gap: "8px",
         }}
       >
-        <ItemCounter amount={amount} />
+        <ItemCounter id={id} amount={amount} />
         <p
           style={{
             fontSize: "15px",
@@ -45,7 +46,7 @@ export function CartItem({ title, amount, price, image }: CartItemProps) {
             textAlign: "right",
           }}
         >
-          {currency.format(price)}
+          {currency.format(price * amount)}
         </p>
       </div>
     </div>
