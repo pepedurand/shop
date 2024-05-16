@@ -1,9 +1,10 @@
 import { useCart } from "@/context";
-import { Drawer } from "@mui/material";
+import { Drawer } from "antd";
+import { CartItem } from "@/features/Cart";
 
 export function Cart() {
   const {
-    state: { isDrawerOpen },
+    state: { isDrawerOpen, cartItems },
     dispatch,
   } = useCart();
 
@@ -15,8 +16,29 @@ export function Cart() {
   }
 
   return (
-    <Drawer open={isDrawerOpen} onClose={handleCloseDrawer}>
-      E ai
+    <Drawer
+      style={{ backgroundColor: "#0f52ba", fontFamily: "Montserrat" }}
+      open={isDrawerOpen}
+      onClose={handleCloseDrawer}
+      title={
+        <h3 style={{ color: "#fff", fontSize: "27px", fontWeight: 700 }}>
+          Carrinho
+          <br />
+          de compras
+        </h3>
+      }
+    >
+      {cartItems.map(({ title, amount, image, price }) => {
+        return (
+          <CartItem
+            key={title}
+            title={title}
+            amount={amount}
+            price={price}
+            image={image}
+          />
+        );
+      })}
     </Drawer>
   );
 }

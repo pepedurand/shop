@@ -1,5 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+$primary-font: "Montserrat", sans-serif;
+$primary-font-color: #2c2c2c;
+$primary-color: #0f52ba;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $primary-font;
+}
+
+.ant-drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+
+.item-counter-button {
+  width: 20px;
+  border: none;
+  background-color: #fff;
+  text-align: center;
+}
+
+.centred {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

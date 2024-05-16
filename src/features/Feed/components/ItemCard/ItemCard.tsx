@@ -21,6 +21,7 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
           title,
           image,
           price,
+          amount: 1,
         },
       },
     });

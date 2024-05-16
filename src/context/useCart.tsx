@@ -5,7 +5,12 @@ type CartState = {
   cartItems: CartItem[];
 };
 
-interface CartItem {}
+interface CartItem {
+  title: string;
+  image: string;
+  price: number;
+  amount: number;
+}
 
 const initialState: CartState = {
   isDrawerOpen: false,
