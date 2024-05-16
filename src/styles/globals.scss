@@ -15,6 +15,16 @@ h1 h2 h3 h4 h5 h6 p {
   color: $primary-font-color;
 }
 
+.white-text {
+  color: #fff;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+:where(.css-dev-only-do-not-override-1r287do).ant-drawer .ant-drawer-footer {
+  padding: 0;
+}
+
 :where(.css-dev-only-do-not-override-1r287do).ant-drawer .ant-drawer-header {
   border: none;
 }
