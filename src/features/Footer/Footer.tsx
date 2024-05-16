@@ -4,11 +4,6 @@ export function Footer() {
       style={{
         width: "100%",
         textAlign: "center",
-        position: "absolute",
-        left: 0,
-        bottom: 0,
-        right: 0,
-
         fontSize: "12px",
         padding: "8px",
         background: "rgba(238, 238, 238, 1)",

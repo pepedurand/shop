@@ -11,10 +11,20 @@ export default function Home() {
   return (
     <QueryClientProvider client={client}>
       <CartContextProvider>
-        <Navbar />
         <Cart />
-        <Feed />
-        <Footer />
+        <div
+          style={{
+            minHeight: "100vh",
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            gap: "80px",
+          }}
+        >
+          <Navbar />
+          <Feed />
+          <Footer />
+        </div>
       </CartContextProvider>
     </QueryClientProvider>
   );

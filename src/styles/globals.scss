@@ -11,6 +11,10 @@ $primary-color: #0f52ba;
   font-family: $primary-font;
 }
 
+* > body {
+  min-height: 100vh;
+}
+
 h1 h2 h3 h4 h5 h6 p {
   color: $primary-font-color;
 }

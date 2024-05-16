@@ -5,13 +5,7 @@ export function Feed() {
   const { data: products, isLoading } = useCyclesList();
 
   return (
-    <div
-      className="centred"
-      style={{
-        width: "100vw",
-        marginTop: "80px",
-      }}
-    >
+    <div className="centred">
       <div className="cards-container">
         {isLoading ? (
           <ItemCardSkeleton />
