@@ -2,7 +2,8 @@ import { currency } from "@/functions";
 import Image from "next/image";
 import { BuyButton } from "@/features/Feed/components";
 import { useCart } from "@/context";
-
+import { motion } from "framer-motion";
+import { Skeleton } from "antd";
 interface ItemCardProps {
   id: number;
   title: string;
@@ -37,7 +38,11 @@ export function ItemCard({
   }
 
   return (
-    <div style={{ width: "240px" }}>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      style={{ width: "240px" }}
+    >
       <div
         className="centred"
         style={{
@@ -92,6 +97,6 @@ export function ItemCard({
         </p>
       </div>
       <BuyButton onClick={() => handleAddToCart()} />
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { Cart, Feed, Navbar } from "@/features";
+import { Cart, Feed, Footer, Navbar } from "@/features";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "../styles/globals.scss";
@@ -14,6 +14,7 @@ export default function Home() {
         <Navbar />
         <Cart />
         <Feed />
+        <Footer />
       </CartContextProvider>
     </QueryClientProvider>
   );

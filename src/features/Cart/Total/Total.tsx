@@ -1,4 +1,5 @@
 import { useCart } from "@/context";
+import { currency } from "@/functions";
 
 export function Total() {
   const {
@@ -20,7 +21,7 @@ export function Total() {
       }}
     >
       <p>Total:</p>
-      <p>{total}</p>
+      <p>{currency.format(total)}</p>
     </div>
   );
 }

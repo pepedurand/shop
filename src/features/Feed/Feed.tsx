@@ -1,40 +1,34 @@
-import { ItemCard } from "./components";
+import { ItemCard, ItemCardSkeleton } from "@/features/Feed/components";
 import { useCyclesList } from "@/api/hooks";
 
 export function Feed() {
-  const { data: products } = useCyclesList();
+  const { data: products, isLoading } = useCyclesList();
 
   return (
     <div
       className="centred"
       style={{
         width: "100vw",
-        height: "100%",
-        paddingTop: "80px",
+        marginTop: "80px",
       }}
     >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )",
-          gap: "16px",
-          justifyItems: "center",
-          alignItems: "center",
-          maxWidth: "1000px",
-        }}
-      >
-        {products?.products.map(({ id, name, photo, price, description }) => {
-          return (
-            <ItemCard
-              key={id}
-              id={id}
-              title={name}
-              image={photo}
-              price={price}
-              description={description}
-            />
-          );
-        })}
+      <div className="cards-container">
+        {isLoading ? (
+          <ItemCardSkeleton />
+        ) : (
+          products?.products.map(({ id, name, photo, price, description }) => {
+            return (
+              <ItemCard
+                key={id}
+                id={id}
+                title={name}
+                image={photo}
+                price={price}
+                description={description}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );
