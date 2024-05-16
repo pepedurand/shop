@@ -1,6 +1,7 @@
 import { currency } from "@/functions";
 import Image from "next/image";
 import { BuyButton } from "@/features/Feed/components";
+import { useCart } from "@/context";
 
 interface ItemCardProps {
   title: string;
@@ -10,6 +11,21 @@ interface ItemCardProps {
 }
 
 export function ItemCard({ title, image, price, description }: ItemCardProps) {
+  const { dispatch } = useCart();
+
+  function handleAddToCart() {
+    dispatch({
+      type: "ADD_ITEM_TO_CART",
+      payload: {
+        item: {
+          title,
+          image,
+          price,
+        },
+      },
+    });
+  }
+
   return (
     <div style={{ width: "240px" }}>
       <div
@@ -62,7 +78,7 @@ export function ItemCard({ title, image, price, description }: ItemCardProps) {
           {description}
         </p>
       </div>
-      <BuyButton />
+      <BuyButton onClick={() => handleAddToCart()} />
     </div>
   );
 }

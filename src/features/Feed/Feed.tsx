@@ -7,25 +7,36 @@ export function Feed() {
   return (
     <div
       style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr 1fr",
-        gap: "16px",
-        justifyItems: "center",
+        width: "100vw",
+        display: "flex",
         alignItems: "center",
-        maxWidth: "1000px",
+        justifyContent: "center",
+        height: "100%",
+        paddingTop: "80px",
       }}
     >
-      {products?.products.map(({ id, name, photo, price, description }) => {
-        return (
-          <ItemCard
-            key={id}
-            title={name}
-            image={photo}
-            price={price}
-            description={description}
-          />
-        );
-      })}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat( auto-fit, minmax(200px, 1fr) )",
+          gap: "16px",
+          justifyItems: "center",
+          alignItems: "center",
+          maxWidth: "1000px",
+        }}
+      >
+        {products?.products.map(({ id, name, photo, price, description }) => {
+          return (
+            <ItemCard
+              key={id}
+              title={name}
+              image={photo}
+              price={price}
+              description={description}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

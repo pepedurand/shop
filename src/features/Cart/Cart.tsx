@@ -16,7 +16,7 @@ export function Cart() {
 
   return (
     <Drawer open={isDrawerOpen} onClose={handleCloseDrawer}>
-      <>E ai</>
+      E ai
     </Drawer>
   );
 }

@@ -29,7 +29,14 @@ type ToggleDrawerAction = {
   };
 };
 
-type Actions = ToggleDrawerAction;
+type AddItemToCartAction = {
+  type: "ADD_ITEM_TO_CART";
+  payload: {
+    item: CartItem;
+  };
+};
+
+type Actions = ToggleDrawerAction | AddItemToCartAction;
 
 const CartContextProvider = ({ children }: React.PropsWithChildren) => {
   const cartReducer = (state: CartState, action: Actions): CartState => {
@@ -38,6 +45,13 @@ const CartContextProvider = ({ children }: React.PropsWithChildren) => {
         return {
           ...state,
           isDrawerOpen: action.payload.isOpen,
+        };
+      }
+
+      case "ADD_ITEM_TO_CART": {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, action.payload.item],
         };
       }
 

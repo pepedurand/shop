@@ -1,6 +1,7 @@
-export function BuyButton() {
+export function BuyButton({ onClick }: { onClick: () => void }) {
   return (
     <button
+      onClick={onClick}
       style={{
         width: "100%",
         background: "#0f52ba",
