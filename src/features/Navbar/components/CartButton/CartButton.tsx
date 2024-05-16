@@ -1,10 +1,25 @@
 import Image from "next/image";
 import cartIcon from "@/assets/cart-icon.png";
+import { useCart } from "@/context";
 
 export function CartButton() {
+  const {
+    state: { isDrawerOpen },
+    dispatch,
+  } = useCart();
+
+  function handleOnClick() {
+    dispatch({
+      type: "TOGGLE_DRAWER",
+      payload: { isOpen: !isDrawerOpen },
+    });
+  }
+
   return (
     <button
+      onClick={handleOnClick}
       style={{
+        cursor: "pointer",
         padding: "12px 28px 12px 12px",
         borderRadius: "8px",
         border: "none",
